@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Cart;
 use App\Models\Invoice;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -17,5 +18,10 @@ class Customer extends Authenticatable
     public function invoice()
     {
         return $this->hasMany(Invoice::class);
+    }
+
+    public function cart()
+    {
+        return $this->hasMany(Cart::class);
     }
 }
