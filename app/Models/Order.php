@@ -17,4 +17,9 @@ class Order extends Model
         'quantity',
         'price'
     ];
+
+    public function invoice()
+    {
+        return $this->belongsTo(Invoice::class);
+    }
 }

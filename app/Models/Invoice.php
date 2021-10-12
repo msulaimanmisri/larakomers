@@ -24,4 +24,9 @@ class Invoice extends Model
         'snap_token',
         'grand_total',
     ];
+
+    public function order()
+    {
+        return $this->hasMany(Order::class);
+    }
 }
