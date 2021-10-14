@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-5">
-    <div class="col-lg-5 mx-auto card p-4">
+    <div class="col-lg-4 mx-auto card p-4 shadow-sm">
         <form action="{{ route('login') }}" method="POST" class="form-group">
             @csrf
             <label for="email" class="form-label">{{ ucwords('email') }}</label>
