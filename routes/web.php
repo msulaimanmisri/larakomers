@@ -15,4 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> parent of 9240086 (Add Front-end files)

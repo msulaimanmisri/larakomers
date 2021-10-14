@@ -1,1 +1,0 @@
-<script src="{{ asset('assets/js/spinner.js') }}"></script>
