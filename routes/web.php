@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-<<<<<<< HEAD
+Route::get('/', [PageController::class, 'index'])->name('page.index');
+
+//group route with prefix "admin"
+Route::prefix('admin')->middleware('auth')->group(function () {
+    // Route::group(['middleware' => 'auth'], function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+    // });
 });
-=======
-});
->>>>>>> parent of 9240086 (Add Front-end files)
