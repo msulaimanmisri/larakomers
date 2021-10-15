@@ -22,7 +22,7 @@
             @enderror
 
             <button type="submit" class="btn btn-primary mt-3">Send Password Reset Link</button>
-            <a href="/forgot-password" class="btn mt-3 text-muted">Or Login</a>
+            <a href="/login" class="btn mt-3 text-muted">Or Login</a>
         </form>
     </div>
 </div>
