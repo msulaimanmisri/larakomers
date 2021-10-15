@@ -22,7 +22,7 @@
 
 <body class="bg-light">
     @yield('content')
-    @include('layouts.footer.auth-footer')
+    @include('layouts.footer.app-footer')
 </body>
 
 </html>
