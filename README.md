@@ -8,3 +8,7 @@
 </p>
 
 ## About LaraKomers
+
+1. For Education purpose. First time using Vue.Js and Fortify in Laravel Project (I prefer Breeze actually).
+2. You can fork / clone it and change based on what you want.
+3. If you wish to make this a better application, I'm sorry, I'm not accept any PR. Like I said, this is only for my study to Vue and Fortify.
