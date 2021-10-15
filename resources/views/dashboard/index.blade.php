@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-Hello from dashboard.index
+@include('components.dashboard.sidebar')
 @endsection
