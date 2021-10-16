@@ -8,7 +8,7 @@
                     {{ ucwords('this month sales') }}
                 </div>
                 <div class="card-body">
-                    <p class="card-text fs-2 fw-bold">RM</p>
+                    <p class="card-text fs-2 fw-bold">RM {{ $monthlyRevenue }}</p>
                 </div>
             </div>
         </div>
