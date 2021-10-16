@@ -140,6 +140,18 @@ class ProductCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $productCategory = Category::findOrFail($id);
+        $productCategoryImage = Storage::disk('local')->delete('public/categories/' . $productCategory->image);
+        $productCategory->delete();
+
+        if ($productCategory) {
+            return response()->json([
+                'status' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
     }
 }
