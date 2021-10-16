@@ -57,8 +57,24 @@
                     <a class="nav-link {{ request()->is('admin/users') ? 'active text-warning' : '' }}" href="">{{
                         ucwords('users') }}</a>
                 </li>
-
             </ul>
         </div>
+
+        <ul class="navbar-nav">
+            <div class="d-flex justify-content-end">
+                <li class="nav-item">
+
+                    <a class="nav-link" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        {{ ucwords('logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                    </form>
+                </li>
+            </div>
+        </ul>
+
     </div>
 </nav>
