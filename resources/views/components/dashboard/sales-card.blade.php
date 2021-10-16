@@ -20,7 +20,7 @@
                     {{ ucwords('this year sales') }}
                 </div>
                 <div class="card-body">
-                    <p class="card-text fs-2 fw-bold">RM</p>
+                    <p class="card-text fs-2 fw-bold">RM {{ $yearlyRevenue }}</p>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                     {{ ucwords('total sales') }}
                 </div>
                 <div class="card-body">
-                    <p class="card-text fs-2 fw-bold">RM</p>
+                    <p class="card-text fs-2 fw-bold">RM {{ $totalRevenue }}</p>
                 </div>
             </div>
         </div>
