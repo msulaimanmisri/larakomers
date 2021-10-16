@@ -8,7 +8,9 @@
                     {{ ucwords('pending') }} <i class="bi bi-arrow-clockwise text-primary"></i>
                 </div>
                 <div class="card-body">
-                    <p class="card-text fs-2 fw-bold"></p>
+                    <p class="card-text fs-2 fw-bold">
+                        {{ $pending }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -20,7 +22,9 @@
                     {{ ucwords('success') }} <i class="bi bi-check2-circle text-success"></i>
                 </div>
                 <div class="card-body">
-                    <p class="card-text fs-2 fw-bold"></p>
+                    <p class="card-text fs-2 fw-bold">
+                        {{ $success }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -32,7 +36,9 @@
                     {{ ucwords('expired') }} <i class="bi bi-exclamation-triangle text-warning"></i>
                 </div>
                 <div class="card-body">
-                    <p class="card-text fs-2 fw-bold"></p>
+                    <p class="card-text fs-2 fw-bold">
+                        {{ $expired }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -44,7 +50,9 @@
                     {{ ucwords('failed') }} <i class="bi bi-x-circle text-danger"></i>
                 </div>
                 <div class="card-body">
-                    <p class="card-text fs-2 fw-bold"></p>
+                    <p class="card-text fs-2 fw-bold">
+                        {{ $failed }}
+                    </p>
                 </div>
             </div>
         </div>
