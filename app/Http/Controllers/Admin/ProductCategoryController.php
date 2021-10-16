@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProductCategoryController extends Controller
 {
@@ -91,9 +92,44 @@ class ProductCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $productCategory)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'unique:categories'],
+        ]);
+
+        // Check if image is empty
+        if ($request->file('image') == '') {
+
+            // Update without image
+            $productCategory = Category::findOrFail($productCategory->id);
+            $productCategory->update([
+                'name' => $request->name,
+                'slug' => Str::slug($request->name, '-')
+            ]);
+        } else {
+
+            // Remove old Image
+            Storage::disk('local')->delete('public/categories' . $productCategory->image);
+
+            // Upload new image
+            $productCategoryImage = $request->file('image');
+            $productCategoryImage->storeAs('public/categories', $productCategoryImage->hashName());
+
+            // Then update
+            $productCategory = Category::findOrFail($productCategory->id);
+            $productCategory->update([
+                'name' => $request->name,
+                'slug' => Str::slug($request->name, '-'),
+                'image' => $productCategoryImage->hashName(),
+            ]);
+        }
+
+        if ($productCategory) {
+            return view('product.category.index')->with('success', 'Data has been updated!');
+        } else {
+            return view('product.category.index')->with('failed', 'Failed! Please try again');
+        }
     }
 
     /**
