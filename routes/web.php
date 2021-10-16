@@ -7,7 +7,9 @@ use App\Http\Controllers\Admin\DashboardController;
 // Public Page
 Route::get('/', [PageController::class, 'index'])->name('page.index');
 
-// Auth Page
+// Admin Page
 Route::prefix('/admin')->middleware('auth')->group(function () {
+
+    // === Dashboard ===
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 });
