@@ -53,6 +53,12 @@ class ProductCategoryController extends Controller
             'slug' => Str::slug($request->name, '-'),
             'image' => $productCategoryImage->hashName(),
         ]);
+
+        if ($productCategory) {
+            return view('product.category.index')->with('success', 'Data has been created!');
+        } else {
+            return view('product.category.index')->with('failed', 'Failed! Data are not store. Please try again');
+        }
     }
     /**
      * Display the specified resource.
