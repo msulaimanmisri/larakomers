@@ -68,7 +68,8 @@ class ProductCategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $productCategory = Category::all();
+        return view('product.category.show', compact('productCategory'));
     }
 
     /**
