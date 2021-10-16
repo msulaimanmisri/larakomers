@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -38,9 +39,21 @@ class ProductCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'name' => ['required', 'unique:categories'],
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:2000'],
+        ]);
 
+        // Upload Image
+        $productCategoryImage = $request->file('image');
+        $productCategoryImage->storeAs('public/categories', $productCategoryImage->hashName());
+
+        $productCategory = Category::create([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name, '-'),
+            'image' => $productCategoryImage->hashName(),
+        ]);
+    }
     /**
      * Display the specified resource.
      *
