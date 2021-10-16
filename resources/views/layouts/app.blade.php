@@ -23,6 +23,7 @@
 </head>
 
 <body class="bg-light">
+    @include('components.dashboard.nav')
     @yield('content')
     @include('layouts.footer.app-footer')
 </body>

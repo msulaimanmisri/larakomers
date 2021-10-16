@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('components.dashboard.nav')
+@include('components.dashboard.sales-card')
+@include('components.dashboard.status-card')
 @endsection
