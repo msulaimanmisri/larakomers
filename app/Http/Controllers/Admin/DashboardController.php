@@ -10,8 +10,20 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        // Year & Month
+        $year = date('Y');
+        $month = date('m');
+
+        // Sales
+        $monthlyRevenue = Invoice::where('status', 'success')->whereMonth('created_at', '=', $month)->whereYear('created_at', '=', $year)->sum('grand_total');
+
+        $yearlyRevenue = Invoice::where('status', 'success')->whereYear('created_at', '=', $year)->sum('grand_total');
+
+        $totalRevenue = Invoice::where('status', 'success')->sum('grand_total');
+
+        // Sales Status
         $pending = Invoice::where('status', 'pending')->count();
 
-        return view('dashboard.index', compact('pending'));
+        return view('dashboard.index', compact('monthlyRevenue', 'yearlyRevenue', 'totalRevenue'));
     }
 }
