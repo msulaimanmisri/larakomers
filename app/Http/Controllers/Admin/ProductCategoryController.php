@@ -27,7 +27,7 @@ class ProductCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.category.create');
     }
 
     /**
