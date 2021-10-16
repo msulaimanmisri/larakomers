@@ -23,7 +23,10 @@ class DashboardController extends Controller
 
         // Sales Status
         $pending = Invoice::where('status', 'pending')->count();
+        $success = Invoice::where('status', 'success')->count();
+        $expired = Invoice::where('status', 'expired')->count();
+        $failed = Invoice::where('status', 'failed')->count();
 
-        return view('dashboard.index', compact('monthlyRevenue', 'yearlyRevenue', 'totalRevenue'));
+        return view('dashboard.index', compact('monthlyRevenue', 'yearlyRevenue', 'totalRevenue', 'pending', 'success', 'expired', 'failed'));
     }
 }
