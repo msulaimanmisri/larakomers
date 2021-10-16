@@ -6,15 +6,59 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-
             <ul class="navbar-nav">
+
+                {{-- Dashboard --}}
                 <li class="nav-item">
                     <a class="nav-link {{ request()->is('admin/dashboard') ? 'active text-warning' : '' }}"
                         href="{{ route('admin.dashboard.index') }}">{{
                         ucwords('dashboard') }}</a>
                 </li>
-            </ul>
 
+                {{-- Product --}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ ucwords('product') }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">{{ ucwords('overview') }}</a></li>
+                        <li><a class="dropdown-item" href="#">{{ ucwords('create new') }}</a></li>
+                        <li><a class="dropdown-item" href="#">{{ ucwords('category') }}</a></li>
+                    </ul>
+                </li>
+
+                {{-- Orders --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/orders') ? 'active text-warning' : '' }}" href="">{{
+                        ucwords('orders') }}</a>
+                </li>
+
+                {{-- Customer --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/customer') ? 'active text-warning' : '' }}" href="">{{
+                        ucwords('customer') }}</a>
+                </li>
+
+                {{-- Slider --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/slider') ? 'active text-warning' : '' }}" href="">{{
+                        ucwords('slider') }}</a>
+                </li>
+
+                {{-- Profile --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/profile') ? 'active text-warning' : '' }}" href="">{{
+                        ucwords('profile') }}</a>
+                </li>
+
+                {{-- Users --}}
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('admin/users') ? 'active text-warning' : '' }}" href="">{{
+                        ucwords('users') }}</a>
+                </li>
+
+            </ul>
         </div>
     </div>
 </nav>
