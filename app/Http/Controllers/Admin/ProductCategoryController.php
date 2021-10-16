@@ -78,9 +78,10 @@ class ProductCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($productCategory)
     {
-        //
+        $productCategory = Category::findOrFail($productCategory);
+        return view('product.category.edit', compact('productCategory'));
     }
 
     /**
