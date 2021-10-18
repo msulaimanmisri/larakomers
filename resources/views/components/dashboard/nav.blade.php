@@ -17,14 +17,15 @@
 
                 {{-- Product --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         {{ ucwords('product') }}
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="#">{{ ucwords('overview') }}</a></li>
                         <li><a class="dropdown-item" href="#">{{ ucwords('create new') }}</a></li>
-                        <li><a class="dropdown-item" href="#">{{ ucwords('category') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.product-category.index') }}">{{
+                                ucwords('category') }}</a></li>
                     </ul>
                 </li>
 
