@@ -1,4 +1,12 @@
 @extends('layouts.app')
 @section('content')
-hello from product.category.index
+<div class="container mt-5">
+
+    {{-- Product Category Table --}}
+    <div class="col-lg-8 mx-auto">
+        @include('components.product-category.table')
+    </div>
+
+</div>
+</div>
 @endsection
