@@ -2,7 +2,7 @@
 <a href="{{ route('admin.product-category.create') }}" class="btn btn-primary btn-sm">Add new category</a>
 
 {{-- Table --}}
-<table class="table table-bordered mt-4">
+<table class="table table-bordered mt-4 bg-white">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -17,7 +17,7 @@
     <tbody>
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ $category->name }}</td>
+            <td>{{ ucwords($category->name) }}</td>
             <td>{{ $category->slug }}</td>
             <td>{{ $category->image }}</td>
             <td>
