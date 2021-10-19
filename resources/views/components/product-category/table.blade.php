@@ -1,7 +1,8 @@
-<div class="my-3">
-    <a href="{{ route('admin.product-category.create') }}" class="btn btn-primary btn-sm">Add new category</a>
-</div>
-<table class="table table-bordered">
+{{-- CTA : Create --}}
+<a href="{{ route('admin.product-category.create') }}" class="btn btn-primary btn-sm">Add new category</a>
+
+{{-- Table --}}
+<table class="table table-bordered mt-4">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -11,16 +12,28 @@
             <th scope="col">Action</th>
         </tr>
     </thead>
+
+    @forelse ($productCategory as $category)
     <tbody>
         <tr>
-            <th scope="row">1</th>
-            <td>Makanan</td>
-            <td>makanan</td>
-            <td></td>
+            <th scope="row">{{ $loop->iteration }}</th>
+            <td>{{ $category->name }}</td>
+            <td>{{ $category->slug }}</td>
+            <td>{{ $category->image }}</td>
             <td>
                 <a href="" class="btn btn-outline-primary btn-sm">View</a>
                 <a href="" class="btn btn-outline-danger btn-sm">Delete</a>
             </td>
         </tr>
     </tbody>
+
+    @empty
+    <tr class="text-center text-muted">
+        <td colspan="12" class="py-3">
+            There's no Product Category yet. Please add new one.
+        </td>
+    </tr>
+
+    @endforelse
+
 </table>

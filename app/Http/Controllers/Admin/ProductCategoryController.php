@@ -18,7 +18,6 @@ class ProductCategoryController extends Controller
     public function index()
     {
         $productCategory = Category::paginate(10);
-
         return view('product.category.index', compact('productCategory'));
     }
 
