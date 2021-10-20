@@ -41,25 +41,16 @@ class ProductCategoryController extends Controller
     {
         $request->validate([
             'name' => ['required', 'unique:categories'],
-            'image' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:2000'],
         ]);
-
-        // Upload Image
-        $productCategoryImage = $request->file('image');
-        $productCategoryImage->storeAs('public/categories', $productCategoryImage->hashName());
 
         $productCategory = Category::create([
             'name' => $request->name,
             'slug' => Str::slug($request->name, '-'),
-            'image' => $productCategoryImage->hashName(),
         ]);
 
-        if ($productCategory) {
-            return view('product.category.index')->with('success', 'Data has been created!');
-        } else {
-            return view('product.category.index')->with('failed', 'Failed! Data are not store. Please try again');
-        }
+        return view('product.category.index')->with('success', 'Data has been created!');
     }
+
     /**
      * Display the specified resource.
      *
