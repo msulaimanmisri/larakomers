@@ -19,3 +19,5 @@
 
 <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 <script src="{{ asset('assets/js/datepicker.js') }}"></script> --}}
+
+@yield('script')
