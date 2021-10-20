@@ -68,7 +68,7 @@ class ProductCategoryController extends Controller
      */
     public function show($id)
     {
-        $productCategory = Category::all();
+        $productCategory = Category::findOrFail($id);
         return view('product.category.show', compact('productCategory'));
     }
 
@@ -95,40 +95,15 @@ class ProductCategoryController extends Controller
     {
         $request->validate([
             'name' => ['required', 'unique:categories'],
+            'slug' => 'required',
         ]);
 
-        // Check if image is empty
-        if ($request->file('image') == '') {
+        $productCategory->update([
+            'name' => $request->name,
+            'slug' => Str::slug($request->name),
+        ]);
 
-            // Update without image
-            $productCategory = Category::findOrFail($productCategory->id);
-            $productCategory->update([
-                'name' => $request->name,
-                'slug' => Str::slug($request->name, '-')
-            ]);
-        } else {
-
-            // Remove old Image
-            Storage::disk('local')->delete('public/categories' . $productCategory->image);
-
-            // Upload new image
-            $productCategoryImage = $request->file('image');
-            $productCategoryImage->storeAs('public/categories', $productCategoryImage->hashName());
-
-            // Then update
-            $productCategory = Category::findOrFail($productCategory->id);
-            $productCategory->update([
-                'name' => $request->name,
-                'slug' => Str::slug($request->name, '-'),
-                'image' => $productCategoryImage->hashName(),
-            ]);
-        }
-
-        if ($productCategory) {
-            return view('product.category.index')->with('success', 'Data has been updated!');
-        } else {
-            return view('product.category.index')->with('failed', 'Failed! Please try again');
-        }
+        return redirect()->route('admin.product-category.index')->with('successUpdate', 'Data has been updated!');
     }
 
     /**
