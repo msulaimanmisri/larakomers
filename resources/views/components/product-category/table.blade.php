@@ -21,8 +21,18 @@
             <td>{{ $category->slug }}</td>
             <td>{{ $category->image }}</td>
             <td>
-                <a href="" class="btn btn-outline-primary btn-sm">View</a>
-                <a href="" class="btn btn-outline-danger btn-sm">Delete</a>
+                <div class="d-flex justify-content-center">
+                    <a href="/admin/product-category/{{ $category->id }}"
+                        class="btn btn-outline-primary btn-sm">View</a>
+
+                    <form action="/admin/product-category/{{ $category->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-sm text-danger border-0 show_confirm">
+                            <i class="mdi mdi-delete text-danger ml-2" type="submit">Delete</i>
+                        </button>
+                    </form>
+                </div>
             </td>
         </tr>
     </tbody>
