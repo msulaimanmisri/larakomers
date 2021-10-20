@@ -48,7 +48,7 @@ class ProductCategoryController extends Controller
             'slug' => Str::slug($request->name, '-'),
         ]);
 
-        return view('product.category.index')->with('success', 'Data has been created!');
+        return redirect()->route('admin.product-category.index')->with('success', 'Data has been created!');
     }
 
     /**
