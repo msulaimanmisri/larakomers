@@ -8,8 +8,7 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Slug</th>
-            <th scope="col">Image</th>
-            <th scope="col">Action</th>
+            <th scope="col" class="text-center">Action</th>
         </tr>
     </thead>
 
@@ -19,7 +18,6 @@
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ ucwords($category->name) }}</td>
             <td>{{ $category->slug }}</td>
-            <td>{{ $category->image }}</td>
             <td>
                 <div class="d-flex justify-content-center">
                     <a href="/admin/product-category/{{ $category->id }}"

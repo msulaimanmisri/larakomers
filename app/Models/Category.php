@@ -9,12 +9,7 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'image'];
-
-    public function getImageAttribute($image)
-    {
-        return asset('storage/categories/' . $image);
-    }
+    protected $fillable = ['name', 'slug'];
 
     public function product()
     {
