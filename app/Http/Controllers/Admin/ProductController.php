@@ -94,20 +94,20 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $id)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => 'required',
+            'name' => 'required',
             'category_id' => 'required',
             'content' => 'required',
             'weight' => 'required',
             'price' => 'required',
-            'discount' => 'required',
+            'discount' => 'nullable | numeric',
         ]);
 
         $product = Product::where('id', $id)->update([
-            'title' => $request->title,
-            'slug' => Str::slug($request->title, '-'),
+            'name' => $request->name,
+            'slug' => Str::slug($request->name, '-'),
             'category_id' => $request->category_id,
             'content' => $request->content,
             'weight' => $request->weight,
@@ -115,7 +115,7 @@ class ProductController extends Controller
             'discount' => $request->discount,
         ]);
 
-        return view('product.index')->with('success', 'Product has been updated!');
+        return redirect()->route('admin.products.index')->with('success', 'Product has been updated!');
     }
 
     /**
