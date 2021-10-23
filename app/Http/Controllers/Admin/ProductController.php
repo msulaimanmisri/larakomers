@@ -51,7 +51,7 @@ class ProductController extends Controller
 
         $product = Product::create([
             'title' => $request->title,
-            'slug' => Str::slug($request->title),
+            'slug' => Str::slug($request->title, '-'),
             'category_id' => $request->category_id,
             'content' => $request->content,
             'weight' => $request->weight,
