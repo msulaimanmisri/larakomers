@@ -16,7 +16,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard.index');
 
     // === Product ===
-    Route::resource('/product', ProductController::class, ['as' => 'admin']);
+    Route::resource('/products', ProductController::class, ['as' => 'admin']);
 
     // === Product Category ===
     Route::resource('/product-category', ProductCategoryController::class, ['as' => 'admin']);
