@@ -46,7 +46,7 @@ class ProductController extends Controller
             'content' => 'required',
             'weight' => 'required | numeric',
             'price' => 'required | numeric',
-            'discount' => 'numeric',
+            'discount' => 'nullable | numeric',
         ]);
 
         $product = Product::create([
@@ -59,7 +59,7 @@ class ProductController extends Controller
             'discount' => $request->discount,
         ]);
 
-        return redirect()->route('admin.product.index')->with('success', 'Product has been added!');
+        return redirect()->route('admin.products.index')->with('success', 'Product has been added!');
     }
 
     /**
