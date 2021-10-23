@@ -80,9 +80,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($product)
     {
-        //
+        $product = Product::findOrFail($product);
+        return view('product.show', compact('product'));
     }
 
     /**
@@ -92,9 +93,28 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'category_id' => 'required',
+            'content' => 'required',
+            'weight' => 'required',
+            'price' => 'required',
+            'discount' => 'required',
+        ]);
+
+        $product = Product::where('id', $id)->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title, '-'),
+            'category_id' => $request->category_id,
+            'content' => $request->content,
+            'weight' => $request->weight,
+            'price' => $request->price,
+            'discount' => $request->discount,
+        ]);
+
+        return view('product.index')->with('success', 'Product has been updated!');
     }
 
     /**
