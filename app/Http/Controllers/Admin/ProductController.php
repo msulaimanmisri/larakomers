@@ -58,6 +58,8 @@ class ProductController extends Controller
             'price' => $request->price,
             'discount' => $request->discount,
         ]);
+
+        return view('product.index')->with('success', 'Product has been added!');
     }
 
     /**
@@ -68,7 +70,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        return view('product.show', compact('product'));
     }
 
     /**
