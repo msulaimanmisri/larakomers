@@ -57,7 +57,7 @@
 
                 {{-- Button --}}
                 <button class="btn btn-primary mt-4" type="submit">Create Product</button>
-                <a href="{{ route('admin.product.index') }}" class="btn text-muted mt-4">Cancel</a>
+                <a href="{{ route('admin.products.index') }}" class="btn text-muted mt-4">Cancel</a>
             </form>
         </div>
     </div>
