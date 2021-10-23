@@ -6,10 +6,10 @@
             <form action="{{ route('admin.products.index') }}" method="POST" class="form-group">
                 @csrf
 
-                <label for="title" class="form-label"> Product Name </label>
-                <input type="text" name="title" id="title"
-                    class="form-control mb-3 @error('title') is-invalid @enderror">
-                @error('title')
+                {{-- Name --}}
+                <label for="name" class="form-label"> Product Name </label>
+                <input type="text" name="name" id="name" class="form-control mb-3 @error('name') is-invalid @enderror">
+                @error('name')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
 
