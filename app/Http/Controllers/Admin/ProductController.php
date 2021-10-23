@@ -28,8 +28,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $productCategory = Category::latest()->get();
-        return view('product.create', compact($productCategory));
+        $categories = Category::all();
+        return view('product.create')->with('categories', $categories);
     }
 
     /**
@@ -44,9 +44,9 @@ class ProductController extends Controller
             'name' => 'required',
             'category_id' => 'required',
             'content' => 'required',
-            'weight' => 'required',
-            'price' => 'required',
-            'discount' => 'required',
+            'weight' => 'required | numeric',
+            'price' => 'required | numeric',
+            'discount' => 'numeric',
         ]);
 
         $product = Product::create([
@@ -59,7 +59,7 @@ class ProductController extends Controller
             'discount' => $request->discount,
         ]);
 
-        return view('product.index')->with('success', 'Product has been added!');
+        return redirect()->route('admin.product.index')->with('success', 'Product has been added!');
     }
 
     /**
