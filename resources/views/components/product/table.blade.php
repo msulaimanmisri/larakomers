@@ -18,13 +18,13 @@
     <tbody>
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ ucwords($product->title) }}</td>
+            <td>{{ ucwords($product->name) }}</td>
             <td>{{ $product->category->name }}</td>
             <td>
                 <div class="d-flex justify-content-center">
-                    <a href="/admin/product/{{ $product->id }}" class="btn btn-outline-primary btn-sm">View</a>
+                    <a href="/admin/products/{{ $product->id }}" class="btn btn-outline-primary btn-sm">View</a>
 
-                    <form action="/admin/product/{{ $product->id }}" method="POST">
+                    <form action="/admin/products/{{ $product->id }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm text-danger border-0 show_confirm">
