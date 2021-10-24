@@ -61,7 +61,7 @@
 
                 {{-- CTA --}}
                 <button class="btn btn-primary mt-4" type="submit">Update Category</button>
-                <a href="{{ route('admin.product-category.index') }}" class="btn text-muted mt-4">Cancel</a>
+                <a href="{{ route('admin.products.index') }}" class="btn text-muted mt-4">Cancel</a>
             </form>
 
         </div>
