@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'slug', 'category_id', 'content', 'weight', 'price'];
+    protected $fillable = ['name', 'slug', 'category_id', 'content', 'weight', 'price', 'discount'];
 
     public function getImageAttribute($image)
     {
