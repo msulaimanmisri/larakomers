@@ -46,7 +46,7 @@ class ProductController extends Controller
             'content' => 'required',
             'weight' => 'required | numeric',
             'price' => 'required | numeric',
-            'discount' => 'nullable | numeric',
+            'discount' => ['nullable', 'numeric'],
         ]);
 
         $product = Product::create([
@@ -102,7 +102,7 @@ class ProductController extends Controller
             'content' => 'required',
             'weight' => 'required',
             'price' => 'required',
-            'discount' => 'numeric',
+            'discount' => ['nullable', 'numeric'],
 
         ]);
 
