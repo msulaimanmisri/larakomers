@@ -18,15 +18,17 @@ class SliderController extends Controller
     {
         $request->validate([
             'image' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:2000'],
-            'link' => 'required'
+            'link' => 'required',
         ]);
 
-        $image = $request->file('image');
-        $sliderImage = $image->storeAs('public/sliders', $image->hashName());
+        // Image
+        $sliderImageName =  'larakomers-' . $request->image->getClientOriginalName();
+        $request->image->move(public_path('storage/sliders'), $sliderImageName);
+
 
         $slider = Slider::create([
-            'image' => $request->hashName(),
-            'link' => $request->link
+            'image' => $sliderImageName,
+            'link' => $request->link,
         ]);
 
         return redirect()->route('admin.slider.index')->with('success', 'Data has been added!');

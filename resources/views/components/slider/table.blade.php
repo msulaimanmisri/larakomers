@@ -1,7 +1,5 @@
-<h3 class="mb-4">Slider</h3>
-
 {{-- Table --}}
-<table class="table table-bordered mt-4 bg-white">
+<table class="table table-bordered mt-5 bg-white">
     <thead>
         <tr>
             <th scope="col">#</th>
@@ -18,7 +16,7 @@
             <td>{{ ucwords($slider->image) }}</td>
             <td>{{ ucwords($slider->link) }}</td>
             <td>
-                <div class="d-flex justify-content-cent er">
+                <div class="d-flex justify-content-center">
                     <a href="/admin/slider/{{ $slider->id }}" class="btn btn-outline-primary btn-sm">View</a>
 
                     <form action="/admin/slider/{{ $slider->id }}" method="POST">
