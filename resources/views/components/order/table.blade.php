@@ -5,7 +5,10 @@
     <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col">No Invoice</th>
             <th scope="col">Name</th>
+            <th scope="col">Grand Total</th>
+            <th scope="col">Status</th>
             <th scope="col" class="text-center">Action</th>
         </tr>
     </thead>
@@ -14,7 +17,10 @@
     <tbody>
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
+            <td>{{ ucwords($invoice->invoice) }}</td>
             <td>{{ ucwords($invoice->name) }}</td>
+            <td>{{ ucwords($invoice->grand_total) }}</td>
+            <td>{{ ucwords($invoice->status) }}</td>
             <td>
                 <div class="d-flex justify-content-cent er">
                     <a href="/admin/invoice/{{ $invoice->id }}" class="btn btn-outline-primary btn-sm">View</a>

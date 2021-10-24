@@ -40,7 +40,8 @@
 
                 {{-- Orders --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/orders') ? 'active text-warning' : '' }}" href="">{{
+                    <a class="nav-link {{ request()->is('admin/order*') ? 'active text-warning' : '' }}"
+                        href="{{ route('admin.order.index') }}">{{
                         ucwords('orders') }}</a>
                 </li>
 
