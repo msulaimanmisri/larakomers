@@ -1,7 +1,4 @@
-<h3 class="mb-4">Product</h3>
-
-{{-- CTA : Create --}}
-<a href="{{ route('admin.products.create') }}" class="btn btn-primary btn-sm">Add new product</a>
+<h3 class="mb-4">Order</h3>
 
 {{-- Table --}}
 <table class="table table-bordered mt-4 bg-white">
@@ -9,7 +6,6 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
-            <th scope="col">Category</th>
             <th scope="col" class="text-center">Action</th>
         </tr>
     </thead>
@@ -19,9 +15,8 @@
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ ucwords($invoice->name) }}</td>
-            <td>{{ $invoice->category->name }}</td>
             <td>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-cent er">
                     <a href="/admin/invoice/{{ $invoice->id }}" class="btn btn-outline-primary btn-sm">View</a>
 
                     <form action="/admin/invoice/{{ $invoice->id }}" method="POST">
@@ -39,7 +34,7 @@
     @empty
     <tr class="text-center text-muted">
         <td colspan="12" class="py-3">
-            There's no Invoice yet. Please add new one.
+            No invoice can be fetch right now..
         </td>
     </tr>
 

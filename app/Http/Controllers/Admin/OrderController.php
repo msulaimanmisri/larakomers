@@ -48,7 +48,8 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $invoice = Invoice::findOrFail($id);
+        return view('order.show', compact('invoice'));
     }
 
     /**
