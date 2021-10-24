@@ -31,5 +31,5 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/customer', [CustomerController::class, 'index'])->name('admin.customer.index');
 
     // === Slider ===
-    Route::resource('/slider', SliderController::class, ['as' => 'admin'])->only('index', 'store', 'show');
+    Route::resource('/slider', SliderController::class, ['as' => 'admin'])->only('index', 'store', 'show', 'update');
 });
