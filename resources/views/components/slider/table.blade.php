@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Image</th>
+            <th scope="col">Image Name</th>
             <th scope="col">Link</th>
             <th scope="col" class="text-center">Action</th>
         </tr>

@@ -33,4 +33,10 @@ class SliderController extends Controller
 
         return redirect()->route('admin.slider.index')->with('success', 'Data has been added!');
     }
+
+    public function show($id)
+    {
+        $slider = Slider::findOrFail($id);
+        return view('slider.show', compact('slider'));
+    }
 }
