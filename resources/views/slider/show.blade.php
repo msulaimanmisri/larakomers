@@ -3,8 +3,8 @@
 <div class="container my-5">
     <div class="row">
         <div class="col-lg-4 mx-auto card p-4">
-            <form action="{{ route('admin.slider.store') }}" method="POST" enctype="multipart/form-data"
-                class="form-group">
+            <form action="{{ route('admin.slider.index') }}/{{ $slider->id }}" method="POST"
+                enctype="multipart/form-data" class="form-group">
                 @csrf
                 @method('PATCH')
 

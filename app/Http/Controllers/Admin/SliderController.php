@@ -39,4 +39,24 @@ class SliderController extends Controller
         $slider = Slider::findOrFail($id);
         return view('slider.show', compact('slider'));
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:2000'],
+            'link' => 'required',
+        ]);
+
+        // Image
+        $sliderImageName =  'larakomers-' . $request->image->getClientOriginalName();
+        $request->image->move(public_path('storage/sliders'), $sliderImageName);
+
+
+        $slider = Slider::where('id', $id)->update([
+            'image' => $sliderImageName,
+            'link' => $request->link,
+        ]);
+
+        return redirect()->route('admin.slider.index')->with('success', 'Data has been added!');
+    }
 }
