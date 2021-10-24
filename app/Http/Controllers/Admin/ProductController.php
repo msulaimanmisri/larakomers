@@ -102,7 +102,8 @@ class ProductController extends Controller
             'content' => 'required',
             'weight' => 'required',
             'price' => 'required',
-            'discount' => 'nullable | numeric',
+            'discount' => 'numeric',
+
         ]);
 
         $product = Product::where('id', $id)->update([

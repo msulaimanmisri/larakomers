@@ -24,11 +24,17 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ route('admin.products.create') }}">{{ ucwords('overview')
-                                }}</a></li>
-                        <li><a class="dropdown-item" href="#">{{ ucwords('create new') }}</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.products.index') }}">{{ ucwords('overview')
+                                }}</a>
+                        </li>
+
+                        <li><a class="dropdown-item" href="{{ route('admin.products.create') }}">{{ ucwords('create
+                                new') }}</a>
+                        </li>
+
                         <li><a class="dropdown-item" href="{{ route('admin.product-category.index') }}">{{
-                                ucwords('category') }}</a></li>
+                                ucwords('category') }}</a>
+                        </li>
                     </ul>
                 </li>
 
