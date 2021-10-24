@@ -54,7 +54,7 @@
 
                 {{-- Slider --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/slider') ? 'active text-warning' : '' }}"
+                    <a class="nav-link {{ request()->is('admin/slider*') ? 'active text-warning' : '' }}"
                         href="{{ route('admin.slider.index') }}">{{
                         ucwords('slider') }}</a>
                 </li>
