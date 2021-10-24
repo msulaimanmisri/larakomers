@@ -59,4 +59,10 @@ class SliderController extends Controller
 
         return redirect()->route('admin.slider.index')->with('success', 'Data has been added!');
     }
+
+    public function destroy(Slider $slider)
+    {
+        $slider->delete();
+        return redirect()->route('admin.slider.index')->with('successDeleted', 'Data successfully deleted!');
+    }
 }
