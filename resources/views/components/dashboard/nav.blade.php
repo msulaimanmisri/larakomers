@@ -24,7 +24,7 @@
                     </a>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ route('admin.products.index') }}">{{ ucwords('overview')
+                        <li><a class="dropdown-item" href="{{ route('admin.products.create') }}">{{ ucwords('overview')
                                 }}</a></li>
                         <li><a class="dropdown-item" href="#">{{ ucwords('create new') }}</a></li>
                         <li><a class="dropdown-item" href="{{ route('admin.product-category.index') }}">{{
