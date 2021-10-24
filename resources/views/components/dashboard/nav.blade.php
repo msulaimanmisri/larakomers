@@ -47,7 +47,8 @@
 
                 {{-- Customer --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/customer') ? 'active text-warning' : '' }}" href="">{{
+                    <a class="nav-link {{ request()->is('admin/customer') ? 'active text-warning' : '' }}"
+                        href="{{ route('admin.customer.index') }}">{{
                         ucwords('customer') }}</a>
                 </li>
 

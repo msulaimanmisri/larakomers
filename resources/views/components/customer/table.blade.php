@@ -5,27 +5,22 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">No Invoice</th>
             <th scope="col">Name</th>
-            <th scope="col">Grand Total</th>
-            <th scope="col">Status</th>
+            <th scope="col">Email</th>
             <th scope="col" class="text-center">Action</th>
         </tr>
     </thead>
 
-    @forelse ($invoices as $invoice)
+    @forelse ($customers as $customer)
     <tbody>
         <tr>
             <th scope="row">{{ $loop->iteration }}</th>
-            <td>{{ ucwords($invoice->invoice) }}</td>
-            <td>{{ ucwords($invoice->name) }}</td>
-            <td>{{ ucwords($invoice->grand_total) }}</td>
-            <td>{{ ucwords($invoice->status) }}</td>
+
             <td>
                 <div class="d-flex justify-content-cent er">
-                    <a href="/admin/invoice/{{ $invoice->id }}" class="btn btn-outline-primary btn-sm">View</a>
+                    <a href="/admin/customer/{{ $customer->id }}" class="btn btn-outline-primary btn-sm">View</a>
 
-                    <form action="/admin/invoice/{{ $invoice->id }}" method="POST">
+                    <form action="/admin/customer/{{ $customer->id }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-sm text-danger border-0 show_confirm">
@@ -40,7 +35,7 @@
     @empty
     <tr class="text-center text-muted">
         <td colspan="12" class="py-3">
-            No invoice can be fetch right now..
+            No customer can be fetch right now..
         </td>
     </tr>
 

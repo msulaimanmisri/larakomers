@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\ProductController;
@@ -24,4 +25,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     // === Order ===
     Route::resource('/order', OrderController::class, ['as' => 'admin'])->only('index', 'show');
+
+    // === Customer ===
+    Route::get('/customer', [CustomerController::class, 'index'])->name('admin.customer.index');
 });
