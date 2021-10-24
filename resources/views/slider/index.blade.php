@@ -3,7 +3,8 @@
 <div class="container mt-5">
 
     <div class="col-lg-8 mx-auto">
-        {{-- @include('components.order.form-create') --}}
+        <h3 class="mb-4">Slider</h3>
+        @include('components.slider.form')
         @include('components.slider.table')
     </div>
 
