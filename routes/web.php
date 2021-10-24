@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductCategoryController;
+use App\Http\Controllers\Admin\SliderController;
 
 // Public Page
 Route::get('/', [PageController::class, 'index'])->name('page.index');
@@ -28,4 +29,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     // === Customer ===
     Route::get('/customer', [CustomerController::class, 'index'])->name('admin.customer.index');
+
+    // === Slider ===
+    Route::resource('/slider', SliderController::class, ['as' => 'admin'])->only('index');
 });
