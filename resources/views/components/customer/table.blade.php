@@ -1,4 +1,4 @@
-<h3 class="mb-4">Order</h3>
+<h3 class="mb-4">Customers</h3>
 
 {{-- Table --}}
 <table class="table table-bordered mt-4 bg-white">
