@@ -35,7 +35,7 @@
                 @enderror
 
                 {{-- Weight --}}
-                <label for="weight" class="form-label"> Weight </label>
+                <label for="weight" class="form-label"> Weight (in gram) </label>
                 <input type="text" name="weight" id="weight"
                     class="form-control mb-3 @error('weight') is-invalid @enderror" value="{{ old('weight') }}">
                 @error('weight')
