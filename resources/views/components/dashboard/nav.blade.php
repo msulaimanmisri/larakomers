@@ -61,7 +61,8 @@
 
                 {{-- Profile --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/profile') ? 'active text-warning' : '' }}" href="">{{
+                    <a class="nav-link {{ request()->is('admin/profile') ? 'active text-warning' : '' }}"
+                        href="{{ route('admin.profile.index') }}">{{
                         ucwords('profile') }}</a>
                 </li>
 
