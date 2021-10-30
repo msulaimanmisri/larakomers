@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Admin\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
-use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\OrderController;
-use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductCategoryController;
 
 // Public Page
 Route::get('/', [PageController::class, 'index'])->name('page.index');
@@ -32,4 +33,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     // === Slider ===
     Route::resource('/slider', SliderController::class, ['as' => 'admin']);
+
+    // === profile ===
+    Route::resource('/profile', ProfileController::class, ['as' => 'admin']);
 });
