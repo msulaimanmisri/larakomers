@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-hello from profile.index
+@include('components.profile.status')
 @endsection
