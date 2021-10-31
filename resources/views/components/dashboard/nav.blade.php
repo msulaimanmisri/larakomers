@@ -68,7 +68,8 @@
 
                 {{-- Users --}}
                 <li class="nav-item">
-                    <a class="nav-link {{ request()->is('admin/users') ? 'active text-warning' : '' }}" href="">{{
+                    <a class="nav-link {{ request()->is('admin/users') ? 'active text-warning' : '' }}"
+                        href="{{ route('admin.users.index') }}">{{
                         ucwords('users') }}</a>
                 </li>
             </ul>
