@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ProductController;
@@ -36,4 +37,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
 
     // === profile ===
     Route::resource('/profile', ProfileController::class, ['as' => 'admin']);
+
+    // === User ===
+    Route::resource('/user', UserController::class, ['as' => 'admin']);
 });
